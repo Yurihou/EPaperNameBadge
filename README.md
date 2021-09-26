@@ -23,4 +23,7 @@ The screen uses SPI interface connected to an ESP32. There is 8 wires to connect
 |VCC|3V3 or 5V|
 |GND|GND|
 
+## Software
+In fact, we can create a library about EPaper screen. However, in order to test the screen, we use just basic SPI library to control the screen.
 
+The programe refers to the example code from YWRobot.
