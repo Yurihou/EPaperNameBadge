@@ -1,6 +1,8 @@
 #ifndef _SCREEN_H_
 #define _SCREEN_H_
 
+#include <SPI.h>
+
 #define VSPI_MISO   MISO
 #define VSPI_MOSI   MOSI
 #define VSPI_SCLK   SCK
@@ -15,8 +17,23 @@
 
 static const int spiClk = 1000000; // 1 MHz
 
-void SPIInit();
+class eInkScreen
+{
+  SPIClass screen;
 
-void screenChange();
+  // unsigned char screenData[4736] = {0};
+
+  void sendByte(char dc, char data);
+  
+  void isScreenBusy();
+  void screenInit();
+  void screenWrite();
+  void screenRefresh();
+  void screenSleep();
+  
+public:
+  eInkScreen();
+  void screenGlobalChange();
+};
 
 #endif

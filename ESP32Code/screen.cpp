@@ -5,9 +5,9 @@
 
 // char screenData[4736] = {0};
 
-SPIClass screen(VSPI);
+//SPIClass screen(VSPI);
 
-void SPIInit()
+eInkScreen::eInkScreen():screen(VSPI)
 {
   //SCLK = 18, MISO = 19, MOSI = 23, CS = 5
   pinMode(DC, OUTPUT);
@@ -17,7 +17,7 @@ void SPIInit()
   screen.begin();
 }
 
-void sendByte(char dc, char data)
+void eInkScreen::sendByte(char dc, char data)
 {
   //while (digitalRead(ISBUSY));
   digitalWrite(DC, dc);
@@ -28,7 +28,7 @@ void sendByte(char dc, char data)
   screen.endTransaction();
 }
 
-void isScreenBusy()
+void eInkScreen::isScreenBusy()
 {
   char busy = 0;
   do
@@ -40,7 +40,7 @@ void isScreenBusy()
   while (busy);
 }
 
-void screenInit()
+void eInkScreen::screenInit()
 {
   //Resolution
   char HRES = 0x80;          //128
@@ -75,7 +75,7 @@ void screenInit()
   sendByte(DAT, 0x97);   //WBmode:VBDF 17|D7 VBDW 97 VBDB 57   WBRmode:VBDF F7 VBDW 77 VBDB 37  VBDR B7
 }
 
-void screenWrite()
+void eInkScreen::screenWrite()
 {
   //Display Test
   unsigned int i;
@@ -88,14 +88,14 @@ void screenWrite()
     sendByte(DAT, screenData[i]);
 }
 
-void screenRefresh()
+void eInkScreen::screenRefresh()
 {
   sendByte(CMD, 0x12);     //DISPLAY REFRESH
   delay(100);          //!!!The delay here is necessary, 200uS at least!!!
   isScreenBusy();
 }
 
-void screenSleep()
+void eInkScreen::screenSleep()
 {
   sendByte(CMD, 0X50);  //VCOM AND DATA INTERVAL SETTING
   sendByte(DAT, 0xf7);
@@ -106,7 +106,7 @@ void screenSleep()
   sendByte(DAT, 0xA5);
 }
 
-void screenChange()
+void eInkScreen::screenGlobalChange()
 {
   screenInit();
   screenWrite();
