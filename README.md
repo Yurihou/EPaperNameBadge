@@ -27,3 +27,14 @@ The screen uses SPI interface connected to an ESP32. There is 8 wires to connect
 In fact, we can create a library about EPaper screen. However, in order to test the screen, we use just basic SPI library to control the screen.
 
 The programe refers to the example code from YWRobot.
+
+## Update Log
+2021.9.26 V0.1.0 
+
+- First Version Uploaded.
+
+2021.10.1 V0.1.1
+
+- Bluetooth Serial Added.
+- Rewrite EPapae control as a class.
+- Back shell (temporary version with handmade circuit board) uploaded.
