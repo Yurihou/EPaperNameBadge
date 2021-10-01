@@ -23,6 +23,13 @@ The screen uses SPI interface connected to an ESP32. There is 8 wires to connect
 |VCC|3V3 or 5V|
 |GND|GND|
 
+We also added 3 LED to show Power, Bluetooth and Wi-Fi (preserved) connection status:
+|LED|Anode|Cathode|
+|---|-----|-------|
+|Power|5V/3V3|GND|
+|Bluetooth|12|GND|
+|Wi-Fi|14|GND|
+
 ## Software
 In fact, we can create a library about EPaper screen. However, in order to test the screen, we use just basic SPI library to control the screen.
 
@@ -35,6 +42,7 @@ The programe refers to the example code from YWRobot.
 
 2021.10.1 V0.1.1
 
-- Bluetooth Serial Added.
+- Bluetooth Serial added.
+- Three status LED added.
 - Rewrite EPapae control as a class.
 - Back shell (temporary version with handmade circuit board) uploaded.
