@@ -1,6 +1,8 @@
 # EPaperNameBadge
 This is a name badge using E-Paper screen which shows various information including name, status, time, weather and so on. 
 
+![522e120fe108bd40b3b348502633d6c](https://user-images.githubusercontent.com/46369018/135572402-bca31bfd-30ce-4aa4-ac79-32095521ecb7.jpg)
+
 This project uses ESP32 as controller, which is able to connect Bluetooth and Wi-Fi. Related function is developing.
 
 ## Hardware
