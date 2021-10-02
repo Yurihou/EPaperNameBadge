@@ -20,6 +20,7 @@ static const int spiClk = 1000000; // 1 MHz
 class eInkScreen
 {
   SPIClass screen;
+  int partialRefreshTime;
 
   // unsigned char screenData[4736] = {0};
 
@@ -34,6 +35,7 @@ class eInkScreen
 public:
   eInkScreen();
   void screenGlobalChange();
+  void screenPartialChange(int y1, int x1, int y2, int x2);
 };
 
 #endif
