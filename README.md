@@ -32,10 +32,37 @@ We also added 3 LED to show Power, Bluetooth and Wi-Fi (preserved) connection st
 |Bluetooth|12|GND|
 |Wi-Fi|14|GND|
 
+For offline time display, we added a DS1302 to store time data:
+|DS1302|ESP32|
+|------|-----|
+|DAT(I/O)|25|
+|CLK|32|
+|RST(EN)|33|
+
 ## Software
 In fact, we can create a library about EPaper screen. However, in order to test the screen, we use just basic SPI library to control the screen.
 
 The programe refers to the example code from YWRobot.
+
+### Bluetooth AT command
+To control the EPaper, time chip, Wi-Fi and so on, we use AT command.
+
+To send command, we use Bluetooth serial APP (such as "Bluetooth Serial" on Android or Harmony OS, "BluTerm" on iOS, any serial tool on Windows, Linux or MacOS), power on the EPaper, connect the Bluetooth "EPapaer_Screen", then open Bluetooth serial APP and connect the bluetooth serial. Then we just send AT command thru Bluetooth.
+
+![394275306ac3181d10a8feeccb368d2](https://user-images.githubusercontent.com/46369018/135706860-7fe9b973-b9be-4860-98a2-db6d133e78a5.jpg)
+![image](https://user-images.githubusercontent.com/46369018/135706869-36279f6b-2a94-4c16-a10e-473acbd59e16.png)
+
+Detailed AT command list will be upload later. Here comes basic examples:
+
+|AT Command|Function|
+|--------|--------|
+|AT+TIME?|Check local time.|
+|AT+TIME 2021/10/02,10:00,7|Set local time to 10:00, Oct.2, 2021, Sunday.|
+|AT+CJWAP?|Check current Wi-Fi status.|
+|AT+CJWAP Tsinghua-2G|Connect to Wi-Fi "Tsinghua-2G" without password.|
+|AT+CJWAP Tsinghua-2G 1145141919810|Connect to Wi-Fi "Tsinghua-2G" with password "1145141919810"|
+|AT+CWLAP|Scan and display all available Wi-Fi|
+|AT+CWQAP|Disconnect Wi-Fi|
 
 ## Update Log
 2021.9.26 V0.1.0 
@@ -49,3 +76,10 @@ The programe refers to the example code from YWRobot.
 - Rewrite EPapae control as a class.
 - Back shell (temporary version with handmade circuit board) uploaded.
 - EInk Screen datasheet uploaded.
+
+
+2021.10.02 V0.2.0
+
+- DS1302 Added.
+- Simple AT command added.
+- Able to connect to Wi-Fi.
