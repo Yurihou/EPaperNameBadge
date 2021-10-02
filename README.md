@@ -60,9 +60,9 @@ Detailed AT command list will be upload later. Here comes basic examples:
 |AT+TIME 2021/10/02,10:00,7|Set local time to 10:00, Oct.2, 2021, Sunday.|
 |AT+CJWAP?|Check current Wi-Fi status.|
 |AT+CJWAP Tsinghua-2G|Connect to Wi-Fi "Tsinghua-2G" without password.|
-|AT+CJWAP Tsinghua-2G 1145141919810|Connect to Wi-Fi "Tsinghua-2G" with password "1145141919810"|
-|AT+CWLAP|Scan and display all available Wi-Fi|
-|AT+CWQAP|Disconnect Wi-Fi|
+|AT+CJWAP Tsinghua-2G 1145141919810|Connect to Wi-Fi "Tsinghua-2G" with password "1145141919810".|
+|AT+CWLAP|Scan and display all available Wi-Fi.|
+|AT+CWQAP|Disconnect Wi-Fi.|
 
 ## Update Log
 2021.9.26 V0.1.0 
