@@ -64,6 +64,8 @@ Detailed AT command list will be upload later. Here comes basic examples:
 |AT+CWLAP|Scan and display all available Wi-Fi.|
 |AT+CWQAP|Disconnect Wi-Fi.|
 
+- Note: WPA2 Camps Networks are not available for this program and I cannot find any solution now emmm...
+
 ## Update Log
 2021.9.26 V0.1.0 
 
